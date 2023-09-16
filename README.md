@@ -1,57 +1,41 @@
-# 🚀 Getting started with Strapi
+# AR Card game Manager 
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+This repository is a [Strapi](https://github.com/strapi/strapi) application to create 
+card decks which are deployed on [AR Card game](https://github.com/poqudrof/ARCardGame) applications. 
+Please review the game repository for more information about the project.
 
-### `develop`
+### Structure 
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+* The [Anrdoid](https://github.com/poqudrof/ARCardGame) repository enables the creation of an Android application. 
+* The Manager repository (this one) is the backend to create augmentations. 
+* The [frontend](https://github.com/poqudrof/ARCardGameWebsite) repository contains a website to obtain user and legal information about the application and download it.
 
-```
-npm run develop
-# or
-yarn develop
-```
+## How to build 
 
-### `start`
+Strapi applications are built on NodeJS : 
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
+``` bash
+# Install
+yarn install
 yarn start
 ```
 
-### `build`
+Please use NodeJS version 18.x, and refer to the [Strapi documentation](https://docs.strapi.io/developer-docs/latest/getting-started/quick-start.html). 
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+## How to export data for the Android app 
 
-```
-npm run build
-# or
-yarn build
-```
+You can obtain a JSON file directly from the app: 
 
-## ⚙️ Deployment
+* all cards: http://localhost:1337/cards?_limit=3000
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+## AR Card structure 
 
-## 📚 Learn more
+The AR cards structure is as follows. 
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+1. The application is built for 1 deck. 
+2. Each card belong to a deck. 
+3. The cards have a “card role“ which represents its category. 
+4. The Lines belong to a card, they represent the textual contents of the cards.
+5. Cards can have additional media, currently: Answer, Tip, Illustration (image), preview (image), voiceover (mp3).  
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+In order to identify a card using the app. The full deck has to be loaded in the app. 

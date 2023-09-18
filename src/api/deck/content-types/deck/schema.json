@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "decks",
+  "info": {
+    "singularName": "deck",
+    "pluralName": "decks",
+    "displayName": "Deck"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "card_role": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::card-role.card-role",
+      "mappedBy": "deck"
+    },
+    "card": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::card.card",
+      "mappedBy": "deck"
+    }
+  }
+}

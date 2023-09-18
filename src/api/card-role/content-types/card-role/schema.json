@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "card_roles",
+  "info": {
+    "singularName": "card-role",
+    "pluralName": "card-roles",
+    "displayName": "card Role"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "short_name": {
+      "type": "string"
+    },
+    "deck": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::deck.deck",
+      "inversedBy": "card_role"
+    },
+    "card": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::card.card",
+      "mappedBy": "card_role"
+    }
+  }
+}

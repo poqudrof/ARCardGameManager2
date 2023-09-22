@@ -4,7 +4,8 @@
   "info": {
     "singularName": "deck",
     "pluralName": "decks",
-    "displayName": "Deck"
+    "displayName": "Deck",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,15 +15,23 @@
     "name": {
       "type": "string"
     },
+    "card_roles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::card-role.card-role"
+    },
+    "uuid": {
+      "type": "uid"
+    },
     "card_role": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::card-role.card-role",
       "mappedBy": "deck"
     },
-    "card": {
+    "cards": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::card.card",
       "mappedBy": "deck"
     }

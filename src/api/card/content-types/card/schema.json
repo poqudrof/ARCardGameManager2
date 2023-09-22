@@ -4,7 +4,8 @@
   "info": {
     "singularName": "card",
     "pluralName": "cards",
-    "displayName": "card"
+    "displayName": "card",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -27,43 +28,46 @@
       "type": "string"
     },
     "illustration": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "preview": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "voiceover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
-    },
-    "deck": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::deck.deck",
-      "inversedBy": "card"
+      ]
     },
     "card_role": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::card-role.card-role",
-      "inversedBy": "card"
+      "inversedBy": "cards"
     },
     "lines": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::line.line",
       "mappedBy": "card"
+    },
+    "deck": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::deck.deck",
+      "inversedBy": "cards"
     }
   }
 }
